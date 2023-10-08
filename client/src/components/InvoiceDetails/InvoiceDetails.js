@@ -41,7 +41,7 @@ const InvoiceDetails = () => {
     const [subTotal, setSubTotal] = useState(0)
     const [total, setTotal] = useState(0)
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const [ client, setClient] = useState([])
+    const [client, setClient] = useState([])
     const [type, setType] = React.useState('')
     const [status, setStatus ] = useState('')
     const [company, setCompany] = useState({})
@@ -281,7 +281,7 @@ if(!invoice) {
                     )}
                     <Container>
                         <Typography variant="overline" style={{color: 'gray', paddingRight: '3px'}} gutterBottom>Bill to</Typography>
-                        <Typography variant="subtitle2" gutterBottom>{client.name}</Typography>
+                        {/* <Typography variant="subtitle2" gutterBottom>{client.name}</Typography> */}
                         <Typography variant="body2" >{client?.email}</Typography>
                         <Typography variant="body2" >{client?.phone}</Typography>
                         <Typography variant="body2">{client?.address}</Typography>
@@ -296,7 +296,7 @@ if(!invoice) {
                     <Typography variant="overline" style={{color: 'gray'}} gutterBottom>Due Date</Typography>
                     <Typography variant="body2" gutterBottom>{selectedDate? moment(selectedDate).format("MMM Do YYYY") : '27th Sep 2021'}</Typography>
                     <Typography variant="overline" gutterBottom>Amount</Typography>
-                    <Typography variant="h6" gutterBottom>{currency} {toCommas(total)}</Typography>
+                    <Typography variant="h6" gutterBottom>Rs. {toCommas(total)}</Typography>
                 </Grid>
             </Grid>
         </Container>
@@ -347,16 +347,16 @@ if(!invoice) {
                     </div>
                     <div className={styles.summaryItem}>
                         <p>Total</p>
-                        <h4>{currency} {toCommas(total)}</h4>
+                        <h4>Rs. {toCommas(total)}</h4>
                     </div>
                     <div className={styles.summaryItem}>
                         <p>Paid</p>
-                        <h4>{currency} {toCommas(totalAmountReceived)}</h4>
+                        <h4>Rs. {toCommas(totalAmountReceived)}</h4>
                     </div>
 
                     <div className={styles.summaryItem}>
                         <p>Balance</p>
-                        <h4 style={{color: "black", fontSize: "18px", lineHeight: "8px"}}>{currency} {toCommas(total - totalAmountReceived)}</h4>
+                        <h4 style={{color: "black", fontSize: "18px", lineHeight: "8px"}}>Rs. {toCommas(total - totalAmountReceived)}</h4>
                     </div>
                     
                 </div>
