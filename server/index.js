@@ -15,7 +15,7 @@ const __dirname = dirname(__filename)
 import invoiceRoutes from './routes/invoices.js'
 import clientRoutes from './routes/clients.js'
 import userRoutes from './routes/userRoutes.js'
-
+import inventoryRoutes from './routes/inventoryRoutes.js'
 import profile from './routes/profile.js'
 import pdfTemplate from './documents/index.js'
 // import invoiceTemplate from './documents/invoice.js'
@@ -29,6 +29,7 @@ app.use((express.urlencoded({ limit: "30mb", extended: true})))
 app.use((cors()))
 
 app.use('/invoices', invoiceRoutes)
+app.use('/inventory', inventoryRoutes)
 app.use('/clients', clientRoutes)
 app.use('/users', userRoutes)
 app.use('/profiles', profile)
