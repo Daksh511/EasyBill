@@ -49,9 +49,8 @@ export const getInvoices = async (req, res) => {
 
 
 export const createInvoice = async (req, res) => {
-
+    
     const invoice = req.body
-
     const newInvoice = new InvoiceModel(invoice)
 
     try {
@@ -89,6 +88,7 @@ export const updateInvoice = async (req, res) => {
 
 
 export const deleteInvoice = async (req, res) => {
+    
     const { id } = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No invoice with that id')
